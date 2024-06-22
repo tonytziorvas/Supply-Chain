@@ -1,0 +1,335 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "shipmentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "origin",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "departureDate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expectedArrivalDate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum ShippingManagement.Position",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"name": "ShipmentAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "shipmentId",
+						"type": "uint256"
+					}
+				],
+				"name": "ShipmentRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "shipmentId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "newDestination",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newDepartureDate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newExpectedArrivalDate",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum ShippingManagement.Position",
+						"name": "newStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "ShipmentUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_origin",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_destination",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_departureDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_expectedArrivalDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum ShippingManagement.Position",
+						"name": "_status",
+						"type": "uint8"
+					}
+				],
+				"name": "addShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					}
+				],
+				"name": "getShipment",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum ShippingManagement.Position",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					}
+				],
+				"name": "removeShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "shipmentCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "shipments",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "origin",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "destination",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "departureDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expectedArrivalDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum ShippingManagement.Position",
+						"name": "status",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shipmentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_newDestination",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newDepartureDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_newExpectedArrivalDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "enum ShippingManagement.Position",
+						"name": "_newStatus",
+						"type": "uint8"
+					}
+				],
+				"name": "updateShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			".deps/contracts/ShippingManagement.sol": "ShippingManagement"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		".deps/contracts/ShippingManagement.sol": {
+			"keccak256": "0x531b7be6ab107d0b226057e4638e20833ee5091b1233281afde0a2abe4825a55",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e6af4ee6d32fc8ac1ead21bbfdf8d1e3f3867dfa4a956101d36fa09356b384dd",
+				"dweb:/ipfs/QmNu3khjaTBFmT7WuZW8g4F2S69CPH2KGRNQHUiY3qmUip"
+			]
+		}
+	},
+	"version": 1
+}

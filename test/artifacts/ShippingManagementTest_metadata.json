@@ -1,0 +1,110 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "beforeAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "printAllShipments",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testAddShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testAddShipment2",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testRemoveShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testUpdateShipment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/ShippingManagement_test.sol": "ShippingManagementTest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		".deps/contracts/ShippingManagement.sol": {
+			"keccak256": "0xd73de7fac0338bbb24d3c7a6f41899ea2e255d805d8e159fe594ee3545bc2dca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ba0cfb39d23125272584494157e1c07f47fa636ed14dbc375974cb1c683dece",
+				"dweb:/ipfs/QmYL45bze1nPsv66uBuZFFSEXSnxKz5ECSNRuHrALQcZCV"
+			]
+		},
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/ShippingManagement_test.sol": {
+			"keccak256": "0x5dc2240caa7a7d9d28a27b487762bf1f2830fb2e15843729104cc46045e3d329",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e5675d1f4b6f578279509b1f0f915833a82044710eadc9c1b57c5fffa741b763",
+				"dweb:/ipfs/QmUwaKkEd88cyM2MddWMVjWQ6cWjuBqnppAi9NnKqanU7a"
+			]
+		}
+	},
+	"version": 1
+}

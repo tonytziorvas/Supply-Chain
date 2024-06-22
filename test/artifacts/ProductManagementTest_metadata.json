@@ -1,0 +1,111 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "beforeAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "printAllUsers",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testAddProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testRemoveProduct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testUpdateProductPosition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"tests/ProductManagement_test.sol": "ProductManagementTest"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		".deps/contracts/ProductManagement.sol": {
+			"keccak256": "0x7e7a40c52726e8bffe60599aec65ab98c5965e216e6560f75047f1c31a47684d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f2affd1d49660f9c3198c33946936f1aa27ac9b24cb12fe29c6c40213985e412",
+				"dweb:/ipfs/QmcYjKkE88PjeXiEr8MH18M1tXSkYSPYA9L5zhmjjxGiWJ"
+			]
+		},
+		".deps/contracts/UserManagement.sol": {
+			"keccak256": "0xd953cccd5529812a7b62f7c13b95e92a624837921be4f741185b090cf9d4153d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://17ce38f8592fc40fc00c83e23be0b29740516b8e7ef7da8c0c0087ff0708bac3",
+				"dweb:/ipfs/QmQQrA6JuHLwokma5xL6o9GQ8DCpt6CgZQo3bmfn1CZAsm"
+			]
+		},
+		"remix_tests.sol": {
+			"keccak256": "0xe2783cdc204cba8c72494119339f1d90f9022b15d6c718c668b7f097d8e29787",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://bb6a22e64c7f16bcaab63b1c1a1b269d5be8a6d37bdd9dec1718477ab916b18e",
+				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
+			]
+		},
+		"tests/ProductManagement_test.sol": {
+			"keccak256": "0xe7a6d7b7a138173b0ace239b19d3b7b9457b20fbc5c9fd5fa3af9be2b5f0fbc8",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://71b94d113efe0d40fcd78647c6d963be784a9a0567ab0cd921e98e48c81d718e",
+				"dweb:/ipfs/QmZTqMczLo953T46cm4XHn7cR2nm4uEUvAsRb8FBfG2nDM"
+			]
+		}
+	},
+	"version": 1
+}
