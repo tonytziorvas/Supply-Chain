@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import './UserManagement.sol';
-
-contract ProductManagement is UserManagement {
+contract ProductManagement {
     struct Product {
         uint256 id;
         string name;
@@ -16,36 +14,40 @@ contract ProductManagement is UserManagement {
     // Events for product management
     event ProductAdded(uint256 indexed productId, string name, uint256 quantity);
     event ProductUpdated(uint256 indexed productId, string name, uint256 quantity);
+    event ProductRemoved(uint256 indexed productId, string name);
 
-    // Add Product
-    function addProduct(
-        uint256 _id,
-        string memory _name,
-        uint256 _quantity
-    ) public onlySupplier {
-        products[_id] = Product(_id, _name, _quantity);
+    function addProduct(string memory _name, uint256 _quantity) public {
         productCount++;
-        emit ProductAdded(_id, _name, _quantity);
+        products[productCount] = Product({id: productCount, name: _name, quantity: _quantity});
+
+        emit ProductAdded(productCount, _name, _quantity);
     }
 
-    // Update Product
-    function updateProduct(
-        uint256 _id,
-        string memory _name,
-        uint256 _quantity
-    ) public onlySupplier {
-        require(products[_id].quantity > 0, 'Product does not exist');
-        products[_id].name = _name;
-        products[_id].quantity = _quantity;
-        emit ProductUpdated(_id, _name, _quantity);
+    function updateProduct(uint256 _productId, string memory _name, uint256 _quantity) public {
+        require(_productId > 0 && _productId <= productCount, 'Invalid product ID');
+        Product storage product = products[_productId];
+        product.name = _name;
+        product.quantity = _quantity;
+
+        emit ProductUpdated(_productId, _name, _quantity);
     }
 
-    // Get Product
-    function getProduct(
-        uint256 _id
-    ) public view onlySupplier returns (string memory, uint256) {
-        require(products[_id].quantity > 0, 'Product does not exist');
-        Product storage product = products[_id];
-        return (product.name, product.quantity);
+    // Remove an existing product
+    function removeProduct(uint256 _productId) public {
+        require(_productId > 0 && _productId <= productCount, 'Invalid product ID');
+
+        // Remove the product by moving the last product into the place of the one to delete
+        Product storage lastProduct = products[productCount];
+        Product storage productToRemove = products[_productId];
+        string memory _name = productToRemove.name;
+
+        productToRemove.id = lastProduct.id;
+        productToRemove.name = lastProduct.name;
+        productToRemove.quantity = lastProduct.quantity;
+
+        delete products[productCount];
+        productCount--;
+
+        emit ProductRemoved(_productId, _name);
     }
 }

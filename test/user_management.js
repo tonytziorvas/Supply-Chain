@@ -1,39 +1,75 @@
-// test/UserManagement.test.js
-
 const UserManagement = artifacts.require('UserManagement');
 
 contract('UserManagement', (accounts) => {
-    let userManagementInstance;
+    let userManagement;
+    const [deployer, user1, user2] = accounts;
 
     before(async () => {
-        userManagementInstance = await UserManagement.deployed();
+        userManagement = await UserManagement.new('Admin');
     });
 
-    it('should deploy with initial users', async () => {
-        const adminRole = await userManagementInstance.getUserRole(accounts[0]);
-        assert.equal(adminRole, 1, 'First account should be Administrator');
-
-        const supplierRole = await userManagementInstance.getUserRole('0x123'); // Replace with actual supplier address
-        assert.equal(supplierRole, 2, 'Supplier should have correct role');
-
-        const logisticRole = await userManagementInstance.getUserRole('0x456'); // Replace with actual logistic address
-        assert.equal(logisticRole, 3, 'Logistic Employee should have correct role');
-
-        const inspectorRole = await userManagementInstance.getUserRole('0x789'); // Replace with actual inspector address
-        assert.equal(inspectorRole, 4, 'Inspector should have correct role');
+    it('should deploy with the initial admin user', async () => {
+        const adminUser = await userManagement.users(deployer);
+        assert(adminUser.id.toNumber() === 1, 'Admin user ID should be 1');
+        assert(adminUser.name === 'Admin', "Admin user name should be 'Admin'");
+        assert(adminUser.role.toNumber() === 4, 'Admin user role should be ADMIN (4)');
     });
 
-    it('should not allow adding duplicate users', async () => {
+    it('should add a new user by admin', async () => {
+        await userManagement.addUser(user1, 'Supplier1', 1, { from: deployer });
+        const addedUser = await userManagement.users(user1);
+        assert(addedUser.id.toNumber() === 2, 'New user ID should be 2');
+        assert(addedUser.name === 'Supplier1', "New user name should be 'Supplier1'");
+        assert(addedUser.role.toNumber() === 1, 'New user role should be SUPPLIER (1)');
+    });
+
+    it('should not add a new user by non-admin', async () => {
         try {
-            await userManagementInstance.addUser(accounts[0], 'Admin', 1); // Try adding Administrator again
-            assert.fail('Should not allow adding duplicate user');
+            await userManagement.addUser(user2, 'Logistic1', 2, { from: user1 });
+            assert.fail('Non-admin should not be able to add a user');
         } catch (error) {
             assert(
-                error.message.includes('User already exists'),
-                'Expected error message',
+                error.message.includes('Only admin can perform this action'),
+                'Expected admin restriction error',
             );
         }
     });
 
-    // Add more tests for adding, removing, and querying users
+    it('should remove a user by admin', async () => {
+        await userManagement.removeUser(user1, { from: deployer });
+        const removedUser = await userManagement.users(user1);
+        assert(removedUser.role.toNumber() === 0, "Removed user's role should be NONE (0)");
+    });
+
+    it('should not remove a user by non-admin', async () => {
+        await userManagement.addUser(user1, 'Supplier1', 1, { from: deployer });
+        try {
+            await userManagement.removeUser(user1, { from: user1 });
+            assert.fail('Non-admin should not be able to remove a user');
+        } catch (error) {
+            assert(
+                error.message.includes('Only admin can perform this action'),
+                'Expected admin restriction error',
+            );
+        }
+    });
+
+    it('should not add an existing user', async () => {
+        try {
+            await userManagement.addUser(user1, 'User Dup', 1, { from: deployer });
+            assert.fail('Expected error not received');
+        } catch (error) {
+            assert(
+                error.message.includes('User already exists'),
+                `Expected 'User already exists' but got '${error.message}'`,
+            );
+        }
+    });
+
+    it('should get all users details', async () => {
+        const allUsers = await userManagement.getAllUsers();
+        assert(allUsers.length === 2, 'There should be 2 users');
+        assert(allUsers[0].name === 'Admin', "First user should be 'Admin'");
+        assert(allUsers[1].name === 'Supplier1', "Second user should be 'Supplier1'");
+    });
 });
