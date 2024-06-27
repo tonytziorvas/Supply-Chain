@@ -22900,10 +22900,67 @@
       "links": {},
       "address": "0xA4476deFd12BeaC01aec27582DAb72E826bE37D5",
       "transactionHash": "0x3088b624c7805b4317c062c67cdb75ce710e7951791aaf49caaacfcaa4291d09"
+    },
+    "1719516946043": {
+      "events": {
+        "0xcb0de2d684e4a978080f3f45ebeda1a67227ad244a748343bbd6aa251a1c50c1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "userAddress",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "role",
+              "type": "uint256"
+            }
+          ],
+          "name": "UserAdded",
+          "type": "event"
+        },
+        "0xe9dce8c992623ce791725b21e857e33248d1f190a25b5168313420eebdaae99d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "userAddress",
+              "type": "address"
+            }
+          ],
+          "name": "UserRemoved",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xD5880363CdB31a3082FB86c0c9355537917d6059",
+      "transactionHash": "0xc54884ff0ab95447a53a1c079b81afce9e905454dafc493439167974a67394f4"
+    },
+    "1719519396463": {
+      "events": {},
+      "links": {},
+      "address": "0x6013d101fD23274437CAE4838121452A73D16618",
+      "transactionHash": "0x1cf5f382dbb275bef8388ea5f555a867cb1472ea915bb64171a3be62ceb3651e"
     }
   },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2024-06-25T08:35:47.540Z",
+  "updatedAt": "2024-06-27T20:17:35.818Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
